@@ -3,14 +3,12 @@
 
 DISCLAIMER: Work-IN-PROGRESS
 
----
 
 ![ComfyUI
 Compatible](https://img.shields.io/badge/ComfyUI-Compatible-brightgreen)
 ![Subprocess
 Architecture](https://img.shields.io/badge/Architecture-Subprocess-orange)
 
----
 
 # Overview
 
@@ -27,7 +25,6 @@ extension for ComfyUI featuring:
 This extension is designed for real-world music production workloads and
 long-running GPU sessions.
 
----
 
 # Architecture Summary
 
@@ -41,7 +38,6 @@ extension framework.
 - No fork-based CUDA
 - No separate service deployment
 
----
 
 # Worker Architecture
 
@@ -54,7 +50,6 @@ extension framework.
 5. "Unload Models" clears cache
 6. "Restart Worker" hard-resets process
 
----
 
 # IPC Design
 
@@ -80,10 +75,9 @@ Main Process:
 
 1. Load AUDIO → temp file
 2. Send job JSON via multiprocessing queue
-3. Wait for response metadata 4. Load output files
-  into AUDIO
+3. Wait for response metadata 
+4. Load output files into AUDIO
   
-
 Worker Process:
 
 1. Receive job
@@ -95,7 +89,6 @@ Worker Process:
 
 No tensor transfer over pipe. No shared CUDA context.
 
----
 
 # Nodes
 
@@ -107,7 +100,6 @@ No tensor transfer over pipe. No shared CUDA context.
 Input: AUDIO
 Output: vocals AUDIO + instrumental AUDIO
 
----
 
 ## Multi-Stem Nodes
 
@@ -129,7 +121,6 @@ Example:
 
 Instrumental = sum(non-vocal stems)
 
----
 
 # AI Model
 
@@ -150,7 +141,6 @@ Instrumental = sum(non-vocal stems)
 
 Each recipe defines chunking and overlap defaults internally.
 
----
 
 # Precision Policy
 
@@ -162,7 +152,6 @@ Dropdown per node:
 
 Auto → fp16 on CUDA, fp32 on CPU.
 
----
 
 # Chunk Policy
 
@@ -172,7 +161,6 @@ Auto → fp16 on CUDA, fp32 on CPU.
 
 Must safely handle 10-minute audio on 16GB GPU.
 
----
 
 # UI Controls
 
@@ -191,8 +179,6 @@ POST /stem_separator/restart
 GET  /stem_separator/status
 ```
 
----
-
 # ComfyUI Compliance Roadmap
 
 This extension:
@@ -206,7 +192,6 @@ This extension:
 
 Subprocess is internal and fully managed by extension.
 
----
 
 # Future Extensions (Roadmap)
 
@@ -217,7 +202,6 @@ Subprocess is internal and fully managed by extension.
 - Worker idle timeout
 - Multi-GPU support
 
----
 
 # License
 
