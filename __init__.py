@@ -55,15 +55,20 @@ C.print("Initializing extension...")
 
 try:
     from .nodes.worker_test import StemWorkerTestNode
-    
-    C.print("worker_test imported OK")
+    from .nodes.demucs_vocal_split import DemucsVocalSplitNode
+
     NODE_CLASS_MAPPINGS = {
         "StemWorkerTestNode": StemWorkerTestNode,
+        "DemucsVocalSplitNode": DemucsVocalSplitNode,
     }
 
     NODE_DISPLAY_NAME_MAPPINGS = {
         "StemWorkerTestNode": "Stem Separator: Worker Test (Phase 1)",
+        "DemucsVocalSplitNode": "Stem Separator: Demucs Vocal Split",
     }
+
+    C.print("worker_test imported OK")
+    C.print("demucs_vocal_split imported OK")
 
 except Exception as e:
     C.error("NODE IMPORT FAILED")
@@ -75,23 +80,23 @@ except Exception as e:
 # -------------------------------------------------
 # DemucsVocalSplitNode import (Phase 2)
 # -------------------------------------------------
-try:
-    from .nodes.demucs_vocal_split import DemucsVocalSplitNode
+# try:
+#     from .nodes.demucs_vocal_split import DemucsVocalSplitNode
 
-    NODE_CLASS_MAPPINGS.update({
-        "DemucsVocalSplitNode": DemucsVocalSplitNode,
-    })
+#     NODE_CLASS_MAPPINGS.update({
+#         "DemucsVocalSplitNode": DemucsVocalSplitNode,
+#     })
 
-    NODE_DISPLAY_NAME_MAPPINGS.update({
-        "DemucsVocalSplitNode": "Stem Separator: Demucs Vocal Split",
-    })
+#     NODE_DISPLAY_NAME_MAPPINGS.update({
+#         "DemucsVocalSplitNode": "Stem Separator: Demucs Vocal Split",
+#     })
 
-    C.print("demucs_vocal_split imported OK")
-except Exception as e:
-    C.error("DemucsVocalSplitNode import failed")
-    traceback.print_exc()
-    # Don't raise here; we want the extension to work even if Phase 2 is broken 
-    # raise e
+#     C.print("demucs_vocal_split imported OK")
+# except Exception as e:
+#     C.error("DemucsVocalSplitNode import failed")
+#     traceback.print_exc()
+#     # Don't raise here; we want the extension to work even if Phase 2 is broken 
+#     # raise e
 
 # -------------------------------------------------
 # Server Routes Import
