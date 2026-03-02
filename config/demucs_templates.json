@@ -1,0 +1,29 @@
+{
+  "default_template": "balanced",
+  "templates": {
+    "balanced": {
+      "shifts": 1,
+      "overlap": 0.25,
+      "segment_sec": 20,
+      "split": true,
+      "normalize": true,
+      "precision": "auto"
+    },
+    "high_quality": {
+      "shifts": 4,
+      "overlap": 0.50,
+      "segment_sec": 30,
+      "split": true,
+      "normalize": true,
+      "precision": "fp16"
+    },
+    "fast": {
+      "shifts": 0,
+      "overlap": 0.10,
+      "segment_sec": 10,
+      "split": false,
+      "normalize": false,
+      "precision": "fp32"
+    }
+  }
+}

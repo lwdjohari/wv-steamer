@@ -1,0 +1,27 @@
+{
+  "default_model": "htdemucs",
+  "model_cache_dir": null,
+  "models": {
+    "htdemucs": {
+      "repo": "htdemucs",
+      "local_path": null,
+      "default_template": "balanced",
+      "allow_download_default": false,
+      "description": "Hybrid Transformer Demucs (default)"
+    },
+    "htdemucs_ft": {
+      "repo": "htdemucs_ft",
+      "local_path": null,
+      "default_template": "balanced",
+      "allow_download_default": false,
+      "description": "Fine-tuned variant (if available)"
+    },
+    "custom_local_example": {
+      "repo": null,
+      "local_path": "/models/demucs/custom_model.ckpt",
+      "default_template": "balanced",
+      "allow_download_default": false,
+      "description": "Example local model path"
+    }
+  }
+}
