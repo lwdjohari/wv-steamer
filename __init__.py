@@ -7,6 +7,7 @@ import logging
 from .cli_color import CliColor as C
 from .sys_info import SysInfo as SYS
 
+
 EXT_NAME = "Stem Separator"
 EXT_VERSION = "0.1.0"
 PHASE = "Phase 1 - Worker Infrastructure"
@@ -71,6 +72,30 @@ except Exception as e:
     NODE_DISPLAY_NAME_MAPPINGS = {}
     raise e
 
+# -------------------------------------------------
+# DemucsVocalSplitNode import (Phase 2)
+# -------------------------------------------------
+try:
+    from .nodes.demucs_vocal_split import DemucsVocalSplitNode
+
+    NODE_CLASS_MAPPINGS.update({
+        "DemucsVocalSplitNode": DemucsVocalSplitNode,
+    })
+
+    NODE_DISPLAY_NAME_MAPPINGS.update({
+        "DemucsVocalSplitNode": "Stem Separator: Demucs Vocal Split",
+    })
+
+    C.print("demucs_vocal_split imported OK")
+except Exception as e:
+    C.error("DemucsVocalSplitNode import failed")
+    traceback.print_exc()
+    # Don't raise here; we want the extension to work even if Phase 2 is broken 
+    # raise e
+
+# -------------------------------------------------
+# Server Routes Import
+# -------------------------------------------------
 try:
     from .server_routes import register_routes
     C.print("server_routes imported OK")

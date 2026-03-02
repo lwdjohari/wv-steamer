@@ -57,4 +57,4 @@ def register_routes():
 
 
 # Register routes at import time (ComfyUI pattern used by many custom nodes)
-register_routes()
+#register_routes()
