@@ -9,8 +9,8 @@ from .sys_info import SysInfo as SYS
 
 
 EXT_NAME = "Stem Separator"
-EXT_VERSION = "0.1.0"
-PHASE = "Phase 1 - Worker Infrastructure"
+EXT_VERSION = "0.2.0"
+PHASE = "Phase 2 - Demucs Vocal Split Node"
 
 # -------------------------------------------------
 # BANNER START
